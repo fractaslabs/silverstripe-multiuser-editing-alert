@@ -1,15 +1,18 @@
 ---
 Name: multiuser_editing
-After: framework/routes#coreroutes
+After:
+  - 'framework/routes#coreroutes'
+  - 'cms/*'
 ---
 Director:
   rules:
     'admin/editing//$Action/$ID': 'MultiUserEditingController'
+CMSMain:
+  extra_requirements_css:
+    - 'multiuser-editing/css/multiuserediting.min.css'
 LeftAndMain:
   extra_requirements_javascript:
     - 'multiuser-editing/javascript/multiUserEditing.js'
-  extra_requirements_css:
-    - 'multiuser-editing/css/multiuserediting.min.css'
 MultiUserEditingController:
   userTimeoutInSeconds: 70
   updateIntervalSingleUser: 24
